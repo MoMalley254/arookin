@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--BOOTSTRAP CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!--BOOTSTRAP CSS-->
+    <!--CUSTOM CSS-->
+        <link href="assets/styles/ui.css" rel="stylesheet">
+    <!--CUSTOM CSS-->
+    <!--FAVICON-->
+        <link href="assets/images/logo.png" rel="icon">
+    <!--FAVICON-->
+    <title>ArooKin</title>
+</head>
+<body>
+    <main>
+        
+        <section id="left">
+            <!--NAVBAR-->
+            <nav class="head">
+                                
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="ArooKin-Logo">
+                    <!-- <h5>ArooKin</h5> -->
+                    
+                </div>
+                
+                <div class="links">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <h5>
+                                    <span>
+                                        <i class="bi bi-house-gear-fill"></i>
+                                    </span>
+                                    Home
+                                    
+                                </h5>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/calendar.html">
+                                <h5>
+                                    <span>
+                                    <i class="bi bi-calendar-day-fill"></i>
+                                </span>
+                                My Calendar
+                                    
+                                </h5>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/budget.html">
+                                <h5><span>
+                                    <i class="bi bi-cash-coin"></i>
+                                </span>
+                                My Spend
+                                    
+                                </h5>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <h5>Home
+                                    <span>
+
+                                    </span>
+                                </h5>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="extra-links">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <h5><span>
+                                    <i class="bi bi-three-dots"></i>
+                                </span>
+                                About ArooKin
+                                
+                            </h5></a>
+                            
+                        </li>
+
+                        <li>
+                            <a href="#"><h5>
+                                <span>
+                                    <i class="bi bi-person-circle"></i>
+                                </span>
+                                Money Man
+                                
+                            </h5></a>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <button id="toggle" class="toggler" onclick="closeNav()">
+                        <span><i class="bi bi-list"></i></span>
+                        
+                    </button>
+                </div>
+                
+            </nav>
+            <!--NAVBAR-->
+        </section>
+        
+
+        <!-- RIGHT SIDE -->
+        <section id="right">
+            <div>
+                <button id="toggle" class="toggler" onclick="openNav()" data-open-nav>
+                    <span><i class="bi bi-list"></i></span>
+                    
+                </button>
+            </div>
+            <h3 class="greet">
+                Welcome, <span>Money Man</span> 
+            </h3>
+            <div class="right-container">
+                <div class="right-container-uno" style="width: 98vw;">
+                    <!-- <div class="top-info">
+                        <h4>
+                            Here's what's up
+                        </h4>
+                            <span>
+                                <a href="pages/calendar.html">
+                                    <h6>New Entry</h6>
+                                    <i class="bi bi-folder-plus"></i>
+                                </a>
+                                
+                            </span>
+                        </div>
+                    </div> -->
+                    
+                    <div class="planning-container" style="position: relative;">
+                        <div class="list-container" >
+                                <h4>
+                                    My Lists
+                                </h4>
+                            <div >
+                                <ul data-lists>
+                                    
+                                </ul>
+                            </div>
+                            <div class="top-info" style="position: absolute; top: 5px;">
+                                <a href="pages/calendar.html" style="text-decoration: none;color: black;"><i class="bi bi-calendar-plus"></i> Edit Plans</a>
+                            </div>
+                            <form action="" data-create-list-form>
+                                <!-- <input type="text" placeholder="Add list" data-create-list-input> -->
+                            </form>
+                            
+                        </div>
+
+                        <div class="task-container"  data-task-container>
+                            <div class="list-name" data-list-title>
+                                
+                            </div>
+                            <div class="remaining-task" data-task-count>
+                                <!-- 4 tasks remaining -->
+                            </div>
+                            <ul class="my-tasks" data-tasks>
+                                
+                            </ul>
+                            <form class="new-task-inputs" data-new-task-form>
+                                <!-- <input type="text" placeholder="Add new task" data-new-task-input-name> -->
+                                
+                            </form>
+                            
+                            <div class="task-buttons">
+                                <button type="submit" data-delete-list-button></button>
+                                <button type="submit" data-complete-tasks-button></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+            </div>
+
+            <div class="bottom-right">
+                <h3>
+                    Your spending be like:)
+                </h3>
+
+                <div id="moneys" class="moneys">
+                    <div class="sum-container">
+                        <div id="incomeTotal" class="incomeTotal">
+                            <h5>
+                                Money Earned
+                            </h5>
+                            <div class="earned">
+                                <span id="money-earned" data-income-amount-total></span>
+                            </div>
+                        </div>
+    
+                        <div id="availableTotal" class="availableTotal">
+                            <h5>
+                                Money Available
+                            </h5>
+                            <div class="available">
+                                <span id="money-available" data-available-amount-total></span>
+                            </div>
+                        </div>
+    
+                        <div id="expenseTotal" class="expenseTotal">
+                            <h5>
+                                Money Spent
+                            </h5>
+                            <div class="expense">
+                                <span id="money-expense" data-expense-amount-total></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-new-index-transact">
+                        <a href="pages/budget.html">
+                            <h3>
+                                Add a new transaction
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- <canvas id="myChart" style="height: fit-content;"></canvas> -->
+
+                <!-- <div class="graph-container">
+                    <div class="graph-label">
+                        <ul>
+                            <li> <span>-1000</span> </li>
+                            <li> <span>2000</span> </li>
+                            <li> <span>3000</span> </li>
+                            <li> <span>4000</span> </li>
+                            <li> <span>5000</span> </li>
+                            <li> <span>5000+</span> </li>
+                        </ul>
+                    </div>
+                    <div class="graph-item">
+                        <div class="graph-item-title">
+                            Mon
+                        </div>
+                        <div class="graph-item-bar mon"></div>
+                    </div>
+
+                    <div class="graph-item">
+                        <div class="graph-item-title">
+                            Mon
+                        </div>
+                        <div class="graph-item-bar"></div>
+                    </div>
+
+                    <div class="graph-item">
+                        <div class="graph-item-title">
+                            Mon
+                        </div>
+                        <div class="graph-item-bar"></div>
+                    </div>
+
+                    <div class="graph-item">
+                        <div class="graph-item-title">
+                            Mon
+                        </div>
+                        <div class="graph-item-bar"></div>
+                    </div>
+
+                    <div class="graph-item">
+                        <div class="graph-item-title">
+                            Mon
+                        </div>
+                        <div class="graph-item-bar"></div>
+                    </div>
+
+                    <div class="graph-item">
+                        <div class="graph-item-title">
+                            Mon
+                        </div>
+                        <div class="graph-item-bar"></div>
+                    </div>
+
+                    <div class="graph-item">
+                        <div class="graph-item-title">
+                            Mon
+                        </div>
+                        <div class="graph-item-bar"></div>
+                    </div>
+                </div> -->
+                    
+            </div>
+        </section>
+        <!-- RIGHT SIDE -->
+    </main>
+    
+    <template id="task-template">
+        <li >
+            <input type="checkbox" style="top: 0;
+            width: 16px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+            transition: -webkit-transform 300ms ease-in-out;
+            transition: transform 300ms ease-in-out;
+            transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;" />
+            <label >
+                
+                <span class="task-name">
+                    
+                </span>
+                
+            </label>
+            
+        </li>
+    </template>
+    
+    <!-- CHART.JS GRAPH JS-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- CHART.JS GRAPH JS-->
+
+    <!--BOOTSTRAP JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!--BOOTSTRAP JS-->
+
+    <!--CUSTOM SCRIPT-->
+        <script src="assets/script/ui.js"></script>
+        <script src="assets/script/calendar.js"></script>
+        <script src="assets/script/script.js"></script>
+    <!--CUSTOM SCRIPT-->
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <h1>Login Page</h1>
+    <form>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      <button type="submit" id="login-btn">Log in</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="create-account-link">Create one</a></p>
+    <div id="create-account-form" style="display:none;">
+      <h2>Create Account</h2>
+      <form>
+        <label for="new-username">Username:</label>
+        <input type="text" id="new-username" name="new-username"><br><br>
+        <label for="new-password">Password:</label>
+        <input type="password" id="new-password" name="new-password"><br><br>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password"><br><br>
+        <button type="submit" id="create-account-btn">Create Account</button>
+      </form>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>

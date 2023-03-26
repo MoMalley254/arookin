@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Budget App</title>
+  </head>
+  <body>
+    <h1>Budget App</h1>
+    <div>
+      <label for="trans-name">Transaction Name:</label>
+      <input type="text" id="trans-name" />
+    </div>
+    <div>
+      <label for="trans-amount">Transaction Amount:</label>
+      <input type="number" id="trans-amount" />
+    </div>
+    <div>
+      <button id="add-income-btn">Add Income</button>
+      <button id="add-expense-btn">Add Expense</button>
+    </div>
+    <div>
+      <h2>Total Income: $<span id="total-income">0</span></h2>
+      <h2>Total Expense: $<span id="total-expense">0</span></h2>
+      <h2>Money Available: $<span id="money-available">0</span></h2>
+    </div>
+    <div>
+      <h3>Incomes</h3>
+      <ul id="incomes-list"></ul>
+    </div>
+    <div>
+      <h3>Expenses</h3>
+      <ul id="expenses-list"></ul>
+    </div>
+    <script src="test.js"></script>
+  </body>
+</html>

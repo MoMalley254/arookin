@@ -1,0 +1,144 @@
+<!-- <li class="complete">
+                                    <input type="checkbox" name="" id="task-3"/>
+                                    <label for="task-3">
+                                        <span>
+                                            <i class="bi bi-bookmarks"></i>
+                                        </span>
+                                        <span class="task-name">
+                                            Numero uno task
+                                        </span>
+                                        <span class="deadline">
+                                            16th March
+                                        </span>
+                                    </label>
+                                    
+                                </li>-->
+
+
+
+<!-- <span>
+                        <i class="bi bi-bookmarks"></i>
+                    </span> -->
+<!-- <span class="deadline">
+                        
+                    </span> -->
+
+<!-- <span></span> -->
+                                <!-- <input type="date" placeholder="Deadline e.g 16th March" data-new-task-input-deadline> -->
+
+<!-- <li class="list-item active">
+                                        <div class="list-name"> 
+                                            <i class="bi bi-view-list"></i>
+                                            My list Uno
+                                         </div> 
+                                    </li> -->
+
+
+
+                                    
+            // <h4>${item.description}</h4>
+            // <div class="item__income">
+            //     <p class="symbol">$</p>
+            //     <span class="income__amount">${item.amount}</span>
+            // </div>
+            // <i class="far fa-trash-alt"></i>
+
+
+
+
+
+
+
+
+            <div class="right-container-dos">
+                    <!-- <h4>
+                        This months plans 
+                    </h4> -->
+                    <div class="calendar">
+                        <div class="month">
+                            <h5>
+                                September
+                            </h5>
+                        </div>
+                        <div class="days">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Sun
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Mon
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Tue
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Wed
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Thu
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Fri
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Sat
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dates">
+                            <ul>
+                                <li class="date">1</li>
+                                <li class="date">2</li>
+                                <li class="date">3</li>
+                                <li class="date">4</li>
+                                <li class="date">5</li>
+                                <li class="date">6</li>
+                                <li class="date">7</li>
+                                <li class="date">8</li>
+                                <li class="date">9</li>
+                                <li class="date">10</li>
+                                <li class="date">11</li>
+                                <li class="date">12</li>
+                                <li class="date">13</li>
+                                <li class="date">14</li>
+                                <li class="date">15</li>
+                                <li class="date">16</li>
+                                <li class="date">17</li>
+                                <li class="date">18</li>
+                                <li class="date">19</li>
+                                <li class="date">20</li>
+                                <li class="date">21</li>
+                                <li class="date">22</li>
+                                <li class="date">23</li>
+                                <li class="date">24</li>
+                                <li class="date">25</li>
+                                <li class="date">26</li>
+                                <li class="date">27</li>
+                                <li class="date">28</li>
+                                <li class="date">29</li>
+                                <li class="date">30</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
