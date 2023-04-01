@@ -9,6 +9,7 @@
     --text-purple: purple;
     --income: green;
     --expense: crimson;
+    --negative: rgb(243, 243, 38);
 }
 
 *{
@@ -320,7 +321,7 @@ button {
 }
 #right .right-container-uno .planning-container .task-container .remaining-task {
     position: absolute;
-    right: 20px;
+    right: 40px;
     top: 10px;
 }
 #right .right-container-uno .planning-container .task-container .my-tasks {
@@ -518,12 +519,69 @@ button {
     font-size: 14px;
     font-weight: 700;
 }
+.negative {
+    /* background-color: var(--negative); */
+    color: var(--negative);
+}
 /* BUDGETS */
+
+/* LOG IN */
+#right .log-in-section {
+    margin: 20px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    background-color: white;
+    border-radius: 20px;
+}
+#right .log-in-section .left-login {
+    padding: 20px;
+}
+#right .log-in-section .left-login .logo-container img {
+    width: 300px;
+    height: 280px;
+}
+#right .log-in-section .right-login{
+    padding: 20px;
+}
+#right .log-in-section .right-login .right-login-button button {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: var(--secondary);
+    padding: 10px;
+    color: white;
+    transition: all 500ms ease-in;
+}
+#right .log-in-section .right-login .right-login-button button:hover {
+    background-color: var(--income);
+}
+#right .log-in-section .right-login .log-out button{
+    background-color: var(--expense);
+}
+#right .log-in-section .right-login .right-info {
+    padding: 20px 0;
+}
+#right .log-in-section .right-login .right-icons{
+    /* padding: 20px; */
+}
+#right .log-in-section .right-login .right-icons span i{
+    font-size: 40px;
+    margin: 10px 20px;
+    color: var(--secondary);
+}
+#right .log-in-section .right-login .right-icons span i:hover {
+    color: var(--text-blue);
+}
+#right .log-in-section .right-login .right-icons .bi-android2:hover {
+    color: var(--income);
+}
+/* LOG IN */
 
 
 /****** MEDIA QUERIES ******/
 /*** DESKTOP ****/
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1200px) {
     #left nav {
         margin: 10px;
         margin-left: 5px;
@@ -771,8 +829,450 @@ button {
 
 /*** SMARTPHONES ***/
 @media screen and (max-width: 767px) and (orientation: portrait) {
+    
     main {
-        background: white;
+        background: inherit;
+        margin: 1%;
+        border-radius: 30px;
+        position: relative;
+        display: flex;
+        flex-direction:column ;
+        height: 98vh;
+    }
+    #toggle  {
+        display: block;
+        z-index: 99;
+        
+    }
+    #toggle span {
+        color: var(--negativey);
+    }
+    /* LEFT SIDE */
+    /* #left nav .menu {
+        display: none;
+    } */
+    #left {
+        display: none;
+    }
+    #left nav {
+        width: 85%;
+        height: 90vh;
+        position: absolute;
+        z-index: 1;
+        display: none;
+        margin: 10px 20px;
+        padding: 10px 10px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 30px;
+        background-color: rgba(236, 197, 236, 0.9);
+    }
+    #left nav .logo img {
+        width: 100px;
+        height: 90px;
+    }
+    #left nav h5 {
+        font-size: 14px;
+        text-align: center;
+    }
+    #left nav .links {
+        margin-top: 20px;
+    }
+    #left nav .links ul li {
+        margin-top: 10px;
+    }    
+    #left nav .extra-links {
+        margin-top: 100px;
+    }
+    #left nav .extra-links ul li {
+        margin-top: 10px;
+    }
+
+    /* RIGHT SIDE */
+    #right {
+        /* position: absolute;
+        width: 70%; */
+        margin: 2%;
+        padding: 3px;
+    }
+    #right .greet {
+        color: white;
+        margin: 5px;
+        margin-left: 10px;
+        font-size: 14px;
+    }
+    #right .greet span {
+        display: none;
+    }
+    #right .right-container {
+        display: flex;
+        grid-template-columns: 60% 40%;
+        margin: .3%;
+    }
+
+    #right .right-container .right-container-uno {
+        background-color: white;
+        margin:10px 0;
+    }
+    #right .right-container .right-container-uno .add-plan span {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: .5s ease-in-out;
+    }
+    #right .right-container .right-container-uno h4 {
+        text-align: center;
+    }
+    #right .right-container .right-container-uno .plans {
+        margin: 5px;
+    }
+    #right .right-container .right-container-uno .plans .single-plan {
+        background-color: rgb(201, 160, 201);
+        border-radius: 5px;
+        padding: 3px 5px;
+        margin: 2px 0;
+    }
+    #right .right-container .right-container-uno .plans .single-plan .plan-title {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-top: 2px;
+    }
+    #right .right-container .right-container-uno .plans .single-plan .plan-specifics {
+        margin-top: 2px;
+        margin-left: 10px;
+        background-color: rgb(236, 84, 236);
+        padding: 0px;
+        border-radius: 5px;
+    }
+    #right .right-container .right-container-uno .plans .single-plan .plan-specifics p {
+        font-size: 12px;
+    }
+
+    #right .right-container .right-container-dos {
+        background-color: var(--color-primary);
+        margin:10px 10px;
+        border-radius: 10px;
+    }
+
+
+    #right .bottom-right {
+        margin: 3%;
+        margin-top: -1%;
+        margin-bottom: 30px;
+        background-color: white;
+        border-radius: 20px;
+    }
+    #right .bottom-right  h3 {
+        text-align: center;
+        margin-top: 10px;
+    }
+    #right .bottom-right .add-new-index-transact a{
+        text-decoration: none;
+        color: var(--text-purple);
+    }
+    #right .bottom-right .add-new-index-transact a:hover{
+        color: var(--text-blue);
+    }
+    #right .planList  {
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        padding: 10px 20px;
+    }
+    #right  .right-container-uno {
+        margin:10px ;
+    }
+    #right  .right-container-uno .top-info {
+        display: flex;
+        justify-content: space-between;
+    }
+    /* #right .right-container-uno .add-plan span {
+        position: absolute;
+        top: 5px;
+    } */
+    #right  .right-container-uno .add-plan span:hover {
+        color: white;
+        background-color: var(--text-blue);
+    }
+    #right  .right-container-uno .add-plan span i {
+        font-size: 18px;
+    }
+    /* #right  .right-container-uno h4 {
+        text-align: center;
+    } */
+    #right  .right-container-uno .plans {
+        margin: 5px;
+    }
+    #right .right-container-uno .plans .single-plan {
+        background-color: rgb(201, 160, 201);
+        border-radius: 5px;
+        padding: 10px 5px;
+        margin: 5px 10px;
+    }
+    #right .right-container-uno .plans .single-plan .plan-title {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-top: 2px;
+    }
+    #right .right-container-uno .plans .single-plan .plan-specifics {
+        margin-left: 10px;
+        background-color: rgb(236, 84, 236);
+        padding: 3px;
+        border-radius: 5px;
+    }
+    #right .right-container-uno .plans .single-plan .plan-specifics p {
+        font-size: 12px;
+    }
+
+    #right .right-container-uno .planning-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #right .right-container-uno .planning-container .list-container {
+        width: 98vw;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        margin-left: -16px;
+    }
+    #right .right-container-uno .planning-container .list-container h4 {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+    #right .right-container-uno .planning-container .list-container ul {
+        padding: 5px;
+        padding-top: 10px;
+        list-style: circle;
+    }
+    #right .right-container-uno .planning-container .list-container ul li {
+        font-size: 14px;
+        cursor: pointer;
+        color: var(--text-purple);
+        padding-top: 10px;
+    }
+    #right .right-container-uno .planning-container .list-container input{
+        margin-top: 10px;
+        font-size: 14px;
+        width: 70vw;
+        color: var(--text-blue);
+    }
+    #right .right-container-uno .planning-container .task-container {
+        margin: 10px;
+        background-color: var(--secondary);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        position: relative;
+    }
+    #right .right-container-uno .planning-container .task-container .list-name {
+        /* text-align: center; */
+        position: absolute;
+        top: 10px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    #right .right-container-uno .planning-container .task-container .remaining-task {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+    #right .right-container-uno .planning-container .task-container .my-tasks {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    #right .right-container-uno .planning-container .task-container .my-tasks .complete {
+        text-decoration: line-through;
+        color: var(--text-blue);
+        cursor: not-allowed;
+    }
+    #right .right-container-uno .planning-container .task-container .my-tasks .deadline {
+        float: right;
+    }
+    #right .right-container-uno .planning-container .task-container .new-task-inputs {
+        display: grid;
+        grid-template-columns: 55% 10% 35%;
+    }
+    #right .right-container-uno .planning-container .task-container .new-task-inputs input {
+        font-size: 16px;
+        width: 60vw;
+    }
+    #right .right-container-uno .planning-container .task-container .task-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 10px;
+        padding: 10px 0;
+    }
+    #right .right-container-uno .planning-container .task-container .task-buttons button {
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-purple);
+        transition: .3s ease-in;
+        margin: 5px 0;
+    }
+    #right .right-container-uno .planning-container .task-container .task-buttons button:hover {
+        background-color: var(--expense);
+        border-radius: 10px;
+        color: white;
+        padding: 3px;
+    }
+    #task-template input[type='checkbox'] {
+        display: none;
+    }
+    .custom-checkbox {
+        --size: 0.75em;
+        display: inline-block;
+        width: var(--size);
+        height: var(--size);
+        margin-right: var(--size);
+        cursor: pointer;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        transition: -webkit-transform 300ms ease-in-out;
+        transition: transform 300ms ease-in-out;
+        transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+    }
+    /* END OF PLANS */
+    /* BUDGETS */
+    #right .moneys {
+        padding: 5px;
+    }
+    #right .moneys .sum-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 5px;
+    }
+    #right .moneys .sum-container .incomeTotal,
+    #right .moneys .sum-container .availableTotal,
+    #right .moneys .sum-container .expenseTotal {
+        padding: 10px;
+        margin: 0 10px;
+    }
+    #right .moneys .sum-container h5 {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 10px;
+    }
+    #right .moneys .sum-container span {
+        font-size: 12px;
+        margin-left: 5px;
+        margin-top: 10px;
+    }
+    #right .moneys .new-transaction {
+        display: flex;
+        padding: 0 10px;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    #right .moneys .new-transaction input {
+        font-size: 12px;
+        height: 30px;
+        margin: 10px 0;
+        padding: 0 10px;
+    }
+    .new-transaction #transactName {
+        width: 330px;
+    }
+    .new-transaction #transactAmount {
+        text-align: center;
+        width: 200px;
+        margin-left: 20px;
+    }
+    #right .moneys .type-buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center; 
+    }
+    #right .moneys .type-buttons button {
+        border: none;
+        height: 30px;
+        padding: 5px;
+        border-radius: 10px;
+        color: white;
+        font-size: 12px;
+    }
+    #right .moneys .money-items {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px;
+    }
+    #incomeItem h4,
+    #expenseItem h4 {
+    font-size: 18px;
+    text-align: center;
+    }
+    #incomeItem h4,
+    #incomeItem h5,
+    #incomeItem span,
+    #incomeItem button  {
+        color: var(--income);
+        /* margin-left: 200px; */
+    }
+    #expenseItem h4,
+    #expenseItem h5,
+    #expenseItem span,
+    #expenseItem button  {
+        color: var(--expense);
+        /* margin-left: 200px; */
+    }
+    #incomeItem .item,
+    #expenseItem .item {
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    padding: 5px;
+    margin: 3px 0;
+    }
+    #incomeItem .item button,
+    #expenseItem .item button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    }
+    #incomeItem .item h5,
+    #incomeItem .item span,
+    #expenseItem .item h5,
+    #expenseItem .item span,
+    #incomeItem .item i,
+    #expenseItem .item i {
+        font-size: 14px;
+        font-weight: 700;
+    }
+    /* BUDGETS */
+    /* LOG IN */
+    #right .log-in-section {
+        margin: 10px;
+        margin-top: 40px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    #right .log-in-section .left-login {
+        padding: 10px;
+    }
+    #right .log-in-section .left-login .logo-container img {
+        width: 200px;
+        height: 190px;
+    }
+    #right .log-in-section .right-login .right-login-button button {
+        font-size: 14px;
+    }
+    /* LOG IN */
+}
+
+@media screen and (max-width: 767px) and (orientation: landscape) {
+    main {
+        background: inherit;
         margin: 1%;
         border-radius: 30px;
         position: relative;
@@ -834,6 +1334,9 @@ button {
         color: white;
         margin: 5px;
         margin-left: 10px;
+    }
+    #right .greet span {
+        display: none;
     }
     #right .right-container {
         display: flex;
@@ -1180,10 +1683,25 @@ button {
         font-weight: 700;
     }
     /* BUDGETS */
-}
-
-@media screen and (max-width: 767px) and (orientation: landscape) {
-    
+    /* LOG IN */
+    #right .log-in-section {
+        margin: 10px;
+        margin-top: 40px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    #right .log-in-section .left-login {
+        padding: 10px;
+    }
+    #right .log-in-section .left-login .logo-container img {
+        width: 200px;
+        height: 190px;
+    }
+    #right .log-in-section .right-login .right-login-button button {
+        font-size: 14px;
+    }
+    /* LOG IN */
 }
 /*** SMARTPHONES ***/
 

@@ -1,3 +1,51 @@
+// Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+// Initialize Firebase Authentication
+// firebase.initializeApp(firebaseConfig)
+// const auth = firebase.auth();
+
+// Get a reference to the Firebase database
+// const db = firebase.database();
+
+// const listsRef = firebase.database().ref(`users/${uid}/lists`);
+// listsRef.once('value')
+//   .then(snapshot => {
+//     if (!snapshot.exists()) {
+//       listsRef.set({
+//         // any initial data you want to set for the lists node
+//       });
+//     }
+//   })
+//   .catch(error => {
+//     // handle any errors here
+//   });
+
+// Add a user authentication listener
+// auth.onAuthStateChanged((user) => {
+//   if (user) {
+//     // User is signed in
+//     const userId = user.uid;
+//     const userRef = db.ref("users/" + userId);
+
+//     // Store the user's lists in Firebase
+//     // userRef.child("lists").set(lists);
+
+//     // Read the user's lists from Firebase
+//     userRef.child("lists").on("value", (snapshot) => {
+//       lists = snapshot.val() || [];
+
+//       // Show the plan
+//       showPlan();
+//     });
+//   } else {
+//     // User is signed out
+//     lists = [];
+//     selectedListId = null;
+//     showPlan();
+//   }
+// });
+
+
 const listContainer = document.querySelector('[data-lists]')
 const newListForm = document.querySelector('[data-create-list-form]')
 const newListInput = document.querySelector('[data-create-list-input]')
@@ -58,6 +106,9 @@ newListForm.addEventListener('submit', e => {
     newListInput.value = null
     lists.push(list)
     saveAndShowPlan()
+
+    // Save the new list to Firebase
+    // db.ref('lists').push(list);
 })
 
 function createList(name) {
@@ -77,6 +128,10 @@ newTaskForm.addEventListener('submit', e => {
     const selectedList = lists.find(list => list.id === selectedListId)
     selectedList.tasks.push(task)
     saveAndShowPlan()
+
+
+    // Save the new task to Firebase
+    // db.ref('lists/' + selectedListId + '/tasks').push(task);
         
 })
 function createTask(name) {
@@ -87,6 +142,15 @@ function createTask(name) {
 function save() {
     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists))
     localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY,selectedListId)
+
+    // if (auth.currentUser) {
+    //     // Store the user's data in Firebase
+    //     const userId = auth.currentUser.uid;
+    //     const userRef = db.ref("users/" + userId);
+    //     userRef.child("lists/" + selectedListId).set(
+    //       lists.find((list) => list.id === selectedListId)
+    //     );
+    //   }
 }
 
 function saveAndShowPlan() {
@@ -120,7 +184,6 @@ function showTasks(selectedList) {
         label.htmlFor = task.id
         label.append(task.name)
         tasksContainer.appendChild(taskElement)
-        console.log(tasksContainer)
     })
 }
 
@@ -152,3 +215,42 @@ function clearElement(element) {
 
 showPlan()
 //Calendar
+
+const list = createList(list.name)
+//Uploading to Firebase
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCO5R_R3S8XNmMRr08Bw2mFjPWCdBrAP5o",
+//     authDomain: "arookin-0.firebaseapp.com",
+//     projectId: "arookin-0",
+//     storageBucket: "arookin-0.appspot.com",
+//     messagingSenderId: "274330650351",
+//     appId: "1:274330650351:web:32225d7b3f4044d0d67d1a",
+//     measurementId: "G-M0B9YF584W"
+//   };
+  
+  // Initialize Firebase
+//   firebase.initializeApp(firebaseConfig);
+  
+//   // Initialize Firebase Authentication
+//   const auth = firebase.auth();
+  
+//   auth.onAuthStateChanged((user) => {
+//     if (user) {
+//       const uid = user.uid;
+//       // Database ref to specific user
+//       const userRef = firebase.database().ref('users/' + uid , 'lists/');
+      
+//       const lists =[
+//             list
+//       ]
+      
+  
+//       // upload the data to the user's location in the database
+//       userRef.set(lists);
+//     } else {
+//       // handle the case where the user is not signed in
+//     }
+//   });
+
+

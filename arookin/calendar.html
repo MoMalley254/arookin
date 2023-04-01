@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#7255D5">
+    <!--BOOTSTRAP CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!--BOOTSTRAP CSS-->
+    <!-- FIREBASE -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <!-- FIREBASE -->
+    <!--CUSTOM CSS-->
+        <link href="assets/styles/ui.css" rel="stylesheet">
+    <!--CUSTOM CSS-->
+    <!--FAVICON-->
+        <link href="assets/images/logo.png" rel="icon">
+    <!--FAVICON-->
+    <!-- MANIFEST -->
+        <link rel="manifest" href="/manifest.json">
+    <!-- MANIFEST -->
+    <!-- IOS SUPPORT -->
+        <link rel="apple-touch-icon" href="assets/images/icons/logo-96x96.png">
+        <meta name="apple-mobile-web-app-status-bar" content="#D405ED">
+    <!-- IOS SUPPORT -->
+    <title>ArooKin</title>
+</head>
+<body>
+    <main>
+        <section id="left">
+            <!--NAVBAR-->
+            <nav class="head">
+                <!-- <div class="menu">
+                    <div id="toggle" class="toggler">
+                        <i class="bi bi-list"></i>
+                    </div>
+                </div> -->
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="ArooKin-Logo">
+                    <!-- <h5>ArooKin</h5> -->
+                </div>
+                <div class="links">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <h5>
+                                    <span>
+                                        <i class="bi bi-house-gear-fill"></i>
+                                    </span>
+                                    Home
+                                    
+                                </h5>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="calendar.html">
+                                <h5>
+                                    <span>
+                                    <i class="bi bi-calendar-day-fill"></i>
+                                </span>
+                                My Plans
+                                    
+                                </h5>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="budget.html">
+                                <h5><span>
+                                    <i class="bi bi-cash-coin"></i>
+                                </span>
+                                My Spend
+                                    
+                                </h5>
+                            </a>
+                        </li>
+
+                        <!-- <li>
+                            <a href="#">
+                                <h5>Home
+                                    <span>
+
+                                    </span>
+                                </h5>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+
+                <div class="extra-links">
+                    <ul>
+                        <li>
+                            <a href="use.html">
+                                <h5><span>
+                                    <i class="bi bi-three-dots"></i>
+                                </span>
+                                About ArooKin
+                                
+                            </h5></a>
+                            
+                        </li>
+
+                        <li>
+                            <a href="login.html"><h5>
+                                <span>
+                                    <i class="bi bi-person-circle"></i>
+                                </span>
+                                <span id="userNameTag">
+
+                                </span>
+                                
+                            </h5></a>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <button id="toggle" class="toggler" onclick="closeNav()">
+                        <span><i class="bi bi-x-lg"></i></span>
+                        
+                    </button>
+                </div>
+
+            </nav>
+            <!--NAVBAR-->
+        </section>
+
+        <!-- RIGHT SIDE -->
+        <section id="right">
+            <div>
+                <button id="toggle" class="toggler" onclick="openNav()" data-open-nav>
+                    <span><i class="bi bi-list"></i></span>
+                    
+                </button>
+            </div>
+            <h3 class="greet">
+                These are your coming events, <span id="userNameActualName">User</span> 
+            </h3>
+            <!-- <div class="add-plan">
+                <span>
+                    <i class="bi bi-folder-plus"></i>
+                </span>
+            </div> -->
+            
+                <div class="right-container-uno">
+                    <div class="planning-container">
+                        <div class="list-container">
+                            <h4>
+                                My Lists
+                            </h4>
+                            <div >
+                                <ul data-lists>
+                                    
+                                </ul>
+                            </div>
+                            <form action="" data-create-list-form>
+                                <input type="text" placeholder="Add list" data-create-list-input>
+                            </form>
+                            
+                        </div>
+
+                        <div class="task-container" data-task-container>
+                            <div class="list-name" data-list-title>
+                                
+                            </div>
+                            <div class="remaining-task" data-task-count>
+                                <!-- 4 tasks remaining -->
+                            </div>
+                            <ul class="my-tasks" data-tasks>
+                                
+                            </ul>
+                            <form class="new-task-inputs" data-new-task-form>
+                                <input type="text" placeholder="Add new task" data-new-task-input-name>
+                                
+                            </form>
+                            
+                            <div class="task-buttons">
+                                <button type="submit" data-delete-list-button>Delete List</button>
+                                <button type="submit" data-complete-tasks-button>Delete Complete tasks</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class=" planList plans">
+                        <div class="single-plan">
+                            <div class="plan-title">
+                                <h5>
+                                    Lorem ipsum dolor sit.
+                                </h5>
+                                <div class="plan-importance">
+
+                                </div>
+                            </div>
+                            <div class="plan-specifics">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, eligendi!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="single-plan">
+                            <div class="plan-title">
+                                <h5>
+                                    Lorem ipsum dolor sit.
+                                </h5>
+                                <div class="plan-importance">
+
+                                </div>
+                            </div>
+                            <div class="plan-specifics">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, eligendi!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="single-plan">
+                            <div class="plan-title">
+                                <h5>
+                                    Lorem ipsum dolor sit.
+                                </h5>
+                                <div class="plan-importance">
+
+                                </div>
+                            </div>
+                            <div class="plan-specifics">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, eligendi!
+                                </p>
+                            </div>
+                        </div>
+
+                        
+                    </div> -->
+                    
+                </div>
+
+                <!-- <div class="right-container-dos">
+                    
+                    <div class="calendar">
+                        <div class="month">
+                            <h5>
+                                September
+                            </h5>
+                        </div>
+                        <div class="days">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Sun
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Mon
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Tue
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Wed
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Thu
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Fri
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Sat
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        
+                    </div>
+                </div> -->
+            </div>
+
+        </section>
+        <!-- RIGHT SIDE -->
+            </main>
+
+        <template id="task-template">
+            <li >
+                <input type="checkbox" style="top: 0;
+                width: 16px;
+                height: 20px;
+                border-radius: 50%;
+                display: inline-block;
+                cursor: pointer;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                -webkit-transform: scale(1);
+                        transform: scale(1);
+                transition: -webkit-transform 300ms ease-in-out;
+                transition: transform 300ms ease-in-out;
+                transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;" />
+                <label >
+                    
+                    <span class="task-name">
+                        
+                    </span>
+                    
+                </label>
+                
+            </li>
+        </template>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                const username = user.displayName;
+                const userNameActualName = document.getElementById('userNameActualName');
+                userNameActualName.innerHTML =  username;
+                
+                const userNameTag = document.getElementById('userNameTag')
+                userNameTag.innerText = username;
+
+                console.log(username)
+            } else {
+                const username = user.displayName;
+                const userNameSpan = document.getElementById('userNameText');
+                userNameSpan.innerHTML = "Not logged in";
+
+                const userNameTag = document.getElementById('userNameTag')
+                userNameTag.innerHTML = "Account";
+            }
+            });
+    
+        </script>
+        <script>
+        // Initialize Firebase with your project's configuration
+        const firebaseConfig = {
+        apiKey: "AIzaSyCO5R_R3S8XNmMRr08Bw2mFjPWCdBrAP5o",
+        authDomain: "arookin-0.firebaseapp.com",
+        projectId: "arookin-0",
+        storageBucket: "arookin-0.appspot.com",
+        messagingSenderId: "274330650351",
+        appId: "1:274330650351:web:32225d7b3f4044d0d67d1a",
+        measurementId: "G-M0B9YF584W"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the Firebase Realtime Database
+        const database = firebase.database();
+        </script>
+
+            
+    <!-- FIREBASE JS-->
+        <script src="assets/script/firebase.js"></script>
+    <!-- FIREBASE JS-->
+
+    <!--BOOTSTRAP JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!--BOOTSTRAP JS-->
+
+    <!--CUSTOM SCRIPT-->
+        <script type="application/javascript" src="assets/script/app.js"></script>
+        <script type="application/javascript" src="assets/script/ui.js"></script>
+        <script type="application/javascript" src="assets/script/calendar.js"></script>
+        <script type="application/javascript" src="assets/script/script.js"></script>
+    <!--CUSTOM SCRIPT-->
+</body>
+</html>
