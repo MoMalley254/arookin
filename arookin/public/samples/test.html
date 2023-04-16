@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Budget App</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Budget App</h1>
+		<div class="input-container">
+			<input type="text" id="description" placeholder="Description">
+			<input type="number" id="amount" placeholder="Amount">
+			<button id="income-btn">Add Income</button>
+			<button id="expense-btn">Add Expense</button>
+		</div>
+		<div class="income-container">
+			<h2>Incomes</h2>
+			<ul id="income-list"></ul>
+		</div>
+		<div class="expense-container">
+			<h2>Expenses</h2>
+			<ul id="expense-list"></ul>
+		</div>
+		<div class="totals-container">
+			<h2>Totals</h2>
+			<p>Amount Earned: <span id="amount-earned"></span></p>
+			<p>Amount Spent: <span id="amount-spent"></span></p>
+			<p>Amount Available: <span id="amount-available"></span></p>
+		</div>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>

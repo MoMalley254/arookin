@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7255D5" />
+    <!--BOOTSTRAP CSS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <!--BOOTSTRAP CSS-->
+   
+    <!--CUSTOM CSS-->
+    <link href="assets/styles/ui.css" rel="stylesheet" />
+    <!--CUSTOM CSS-->
+    <!--FAVICON-->
+    <link href="assets/images/logo.png" rel="icon" />
+    <!--FAVICON-->
+    <!-- MANIFEST -->
+    <link rel="manifest" href="/manifest.json" />
+    <!-- MANIFEST -->
+    <!-- IOS SUPPORT -->
+    <link rel="apple-touch-icon" href="assets/images/icons/logo-96x96.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#D405ED" />
+    <!-- IOS SUPPORT -->
+    <title>ArooKin</title>
+  </head>
+  <body>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+          const username = user.displayName;
+          // const userNameSpan = document.getElementById('userNameText');
+          // userNameSpan.innerHTML = "Welcome," + username;
+          const userNameTag = document.getElementById('userNameTag')
+          userNameTag.innerText = username;
+          alert("Logged in as " + user.displayName + ".");
+      } else {
+            const notLogged = "Account";
+            const userNameSpan = document.getElementById('userNameText');
+            userNameSpan.innerHTML = "Welcome,";
+            // userNameTag.innerText = "Account";
+
+            const userNameTag = document.getElementById('userNameTag')
+            userNameTag.innerHTML = "Account";
+      }
+      });
+
+  </script>
+    <main>
+      <section id="left">
+        <!--NAVBAR-->
+        <nav class="head">
+          <!-- <div class="menu">
+                    <div id="toggle" class="toggler">
+                        <i class="bi bi-list"></i>
+                    </div>
+                </div> -->
+          <div class="logo">
+            <img src="assets/images/logo.png" alt="ArooKin-Logo" />
+            <!-- <h5>ArooKin</h5> -->
+          </div>
+          <div class="links">
+            <ul>
+              <li>
+                <a href="index.html">
+                  <h5>
+                    <span>
+                      <i class="bi bi-house-gear-fill"></i>
+                    </span>
+                    Home
+                  </h5>
+                </a>
+              </li>
+
+              <li>
+                <a href="calendar.html">
+                  <h5>
+                    <span>
+                      <i class="bi bi-calendar-day-fill"></i>
+                    </span>
+                    My Plans
+                  </h5>
+                </a>
+              </li>
+
+              <li>
+                <a href="budget.html">
+                  <h5>
+                    <span>
+                      <i class="bi bi-cash-coin"></i>
+                    </span>
+                    My Spend
+                  </h5>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="extra-links">
+            <ul>
+              <li>
+                <a href="use.html">
+                  <h5>
+                    <span>
+                      <i class="bi bi-three-dots"></i>
+                    </span>
+                    About ArooKin
+                  </h5>
+                </a>
+              </li>
+
+              <li>
+                <a href="login.html"
+                  ><h5>
+                    <span>
+                      <i class="bi bi-person-circle"></i>
+                    </span>
+                    <span id="userNameTag">
+
+                    </span>
+                  </h5></a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <button id="toggle" class="toggler" onclick="closeNav()">
+              <span><i class="bi bi-x-lg"></i></span>
+            </button>
+          </div>
+        </nav>
+        <!--NAVBAR-->
+      </section>
+
+      <!-- RIGHT SIDE -->
+      <section id="right">
+        <div>
+          <button id="toggle" class="toggler" onclick="openNav()" data-open-nav>
+            <span>
+              Menu
+              <!-- <i class="bi bi-list"></i> -->
+            </span>
+          </button>
+        </div>
+        <div class="log-in-section">
+          <div class="left-login">
+            <div class="logo-container">
+              <img src="assets/images/logo.png" alt="ArooKin-Logo" srcset="" />
+            </div>
+          </div>
+          <div class="space"></div>
+          <div class="right-login" >
+            <div class="right-login-button" id="loginText">
+                <h4 >Log in with Google</h4>
+              <button id="login">
+                <span><i class="bi bi-google"></i></span>
+                Click to Log-in/Sign up
+              </button>
+            </div>
+            <div class="right-info">
+              <h3>
+                Loging in allows you to see your information across multiple
+                devices
+              </h3>
+            </div>
+            <div class="right-icons">
+              <span><i class="bi bi-android2"></i></span>
+              <span><i class="bi bi-apple"></i></span>
+              <span><i class="bi bi-windows"></i></span>
+            </div>
+
+            <div class="right-login-button log-out">
+              <button id="signOutBtn">
+                <span><i class="bi bi-door-open-fill"></i></span>
+                Click to Log-out
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- RIGHT SIDE -->
+    </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+          loginText.style.display = "none";
+          // window.location.href = "/index.html";
+          const username = user.displayName;
+          // const userNameSpan = document.getElementById('userNameText');
+          // userNameSpan.innerHTML = "Welcome," + username;
+          
+          const userNameTag = document.getElementById('userNameTag')
+          userNameTag.innerText = username;
+
+      } else {
+          const dontDisplayLinks = document.querySelector('.head')
+          dontDisplayLinks.style.display = "none"
+      }
+      });
+
+  </script>
+
+    <!-- FIREBASE JS-->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
+        import { getAuth ,GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
+      
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+                  apiKey: "AIzaSyCO5R_R3S8XNmMRr08Bw2mFjPWCdBrAP5o",
+                  authDomain: "arookin-0.firebaseapp.com",
+                  databaseURL: "https://arookin-0-default-rtdb.firebaseio.com",
+                  projectId: "arookin-0",
+                  storageBucket: "arookin-0.appspot.com",
+                  messagingSenderId: "274330650351",
+                  appId: "1:274330650351:web:32225d7b3f4044d0d67d1a",
+                  measurementId: "G-M0B9YF584W"
+              };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider(app);
+      
+        login.addEventListener('click',(e) => {
+         // sign in with popup tab
+        signInWithPopup(auth, provider)
+            .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            window.location.href = "/index.html";
+        
+            alert(user.displayName);
+            loginText.style.display = "none";
+
+            const dontDisplayLinks = document.querySelector('.head')
+            dontDisplayLinks.style.display = ""
+
+            //Store the user in local storage
+            localStorage.setItem('user', JSON.stringify(user));
+
+            // ...
+            }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        
+            alert(errorMessage);
+            });
+        });
+        
+        const signOutNow = document.getElementById('signOutBtn');
+
+        signOutNow.addEventListener('click', (e) => {
+            signOut(auth).then((result) => {
+            // Sign-out successful.
+            // after the user logs out
+            console.log('signed out')
+              localStorage.removeItem('user');
+              loginText.style.display = "";
+
+            const dontDisplayLinks = document.querySelector('.head')
+            dontDisplayLinks.style.display = "none"
+
+            }).catch((error) => {
+            // An error happened.
+            });    
+        });
+      
+      </script>
+    <!-- FIREBASE JS-->
+
+    <!--BOOTSTRAP JS-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <!--BOOTSTRAP JS-->
+
+    <!--CUSTOM SCRIPT-->
+    <script type="application/javascript" src="assets/script/app.js"></script>
+    <script type="application/javascript" src="assets/script/ui.js"></script>
+    <script
+      type="application/javascript"
+      src="assets/script/calendar.js"
+    ></script>
+    <script
+      type="application/javascript"
+      src="assets/script/script.js"
+    ></script>
+    <!--CUSTOM SCRIPT-->
+  </body>
+</html>

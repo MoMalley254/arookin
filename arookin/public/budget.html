@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7255D5" />
+
+    <!--BOOTSTRAP CSS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <!--BOOTSTRAP CSS-->
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <!-- FIREBASE -->
+
+    <!-- GENERATE PDF -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+      integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      type="module"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.es.min.js"
+      type="module"
+      integrity="sha512-3chOMtjYaSa9m2bCC8qGxmEcX449u63D1fMXMQdueS3/XgE12iHQdmZVXVVbhBLc9i7h9WUuuM15B0CCE6Jtvg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- GENERATE PDF -->
+
+    <!--CUSTOM CSS-->
+    <link href="assets/styles/ui.css" rel="stylesheet" />
+    <!--CUSTOM CSS-->
+
+    <!--FAVICON-->
+    <link href="assets/images/logo.png" rel="icon" />
+    <!--FAVICON-->
+
+    <!-- MANIFEST -->
+    <link rel="manifest" href="/manifest.json" />
+    <!-- MANIFEST -->
+
+    <!-- IOS SUPPORT -->
+    <link rel="apple-touch-icon" href="assets/images/icons/logo-96x96.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#D405ED" />
+    <!-- IOS SUPPORT -->
+
+    <title>ArooKin</title>
+  </head>
+  <body>
+    <main>
+      <section id="left">
+        <!--NAVBAR-->
+        <nav class="head">
+          <!-- <div class="menu">
+                    <div id="toggle" class="toggler">
+                        <i class="bi bi-list"></i>
+                    </div>
+                </div> -->
+          <div class="logo">
+            <img src="assets/images/logo.png" alt="ArooKin-Logo" />
+            <!-- <h5>ArooKin</h5> -->
+          </div>
+          <div class="links">
+            <ul>
+              <li>
+                <a href="index.html">
+                  <h5>
+                    <span>
+                      <i class="bi bi-house-gear-fill"></i>
+                    </span>
+                    Home
+                  </h5>
+                </a>
+              </li>
+
+              <li>
+                <a href="calendar.html">
+                  <h5>
+                    <span>
+                      <i class="bi bi-calendar-day-fill"></i>
+                    </span>
+                    My Plans
+                  </h5>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <h5>
+                    <span>
+                      <i class="bi bi-cash-coin"></i>
+                    </span>
+                    My Spend
+                  </h5>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="extra-links">
+            <ul>
+              <li>
+                <a href="use.html">
+                  <h5>
+                    <span>
+                      <i class="bi bi-three-dots"></i>
+                    </span>
+                    About
+                  </h5></a
+                >
+              </li>
+
+              <li>
+                <a href="login.html"
+                  ><h5>
+                    <span>
+                      <i class="bi bi-person-circle"></i>
+                    </span>
+                    <span id="userNameTag"> </span></h5
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <button id="toggle" class="toggler" onclick="closeNav()">
+              <span><i class="bi bi-x-lg"></i></span>
+            </button>
+          </div>
+        </nav>
+        <!--NAVBAR-->
+      </section>
+
+      <!-- RIGHT SIDE -->
+      <section id="right">
+        <div>
+          <button id="toggle" class="toggler" onclick="openNav()" data-open-nav>
+            <span><i class="bi bi-list"></i></span>
+          </button>
+        </div>
+        <h3 class="greet">
+          Your spending summary <span id="userNameActualName">User</span>
+        </h3>
+        <div id="moneys" class="moneys">
+          <div class="sum-container">
+            <div id="incomeTotal" class="incomeTotal">
+              <h5>Money Earned</h5>
+              <div class="earned">
+                <span id="money-earned" data-income-amount-total></span>
+              </div>
+            </div>
+
+            <div id="availableTotal" class="availableTotal">
+              <h5>Money Available</h5>
+              <div class="available">
+                <span id="money-available" data-available-amount-total></span>
+              </div>
+            </div>
+
+            <div id="expenseTotal" class="expenseTotal">
+              <h5>Money Spent</h5>
+              <div class="expense">
+                <span id="money-expense" data-expense-amount-total></span>
+              </div>
+            </div>
+          </div>
+
+          <div id="buttonsContain">
+            <div class="deleteAll">
+              <button id="deleteAll" data-delete-all-button>
+                Clear All Transactions
+              </button>
+            </div>
+
+            <div class="generatePdf">
+              <button id="generatePdf" >
+                Generate report
+              </button>
+            </div>
+          </div>
+
+          <form class="new-transaction" data-input-amount-form>
+            <input
+              id="transactName"
+              type="text"
+              placeholder="e.g salary,bill etc"
+              data-input-amount-name
+            />
+            <input
+              id="transactAmount"
+              type="number"
+              placeholder="Amount"
+              data-input-amount-number
+            />
+          </form>
+
+          <div class="type-buttons">
+            <button id="addIncome" data-add-income-button>Add Income</button>
+            <button id="addExpense" data-add-expense-button>Add Expense</button>
+          </div>
+
+          <div
+            id="money-items-containers"
+            class="money-items"
+            data-transacts-container
+          >
+            <div id="incomeItem" data-income-container>
+              <h4>Income</h4>
+              <!-- <div class="item" data-income-single-item>
+                            <h5 class="item-name" data-income-item-name>
+                                
+                            </h5>
+                            <span id="incomeAmount" data-income-item-amount>
+                                
+                            </span>
+                            <span class="delete-tag">
+                                <i class="bi bi-trash3-fill" data-delete-item></i>
+                            </span>
+                        </div> -->
+            </div>
+
+            <div></div>
+
+            <div id="expenseItem" data-expense-container>
+              <h4>Expenses</h4>
+              <!-- <div class="item" data-expense-single-item>
+                            <h5 class="item-name" data-expense-item-name>
+                                
+                            </h5>
+                            <span id="expenseAmount" data-expense-item-amount>
+                                
+                            </span>
+                            <span class="delete-tag">
+                                <i class="bi bi-trash3-fill" data-delete-item></i>
+                            </span>
+                        </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- RIGHT SIDE -->
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+          const username = user.displayName;
+          const userNameActualName =
+            document.getElementById("userNameActualName");
+          userNameActualName.innerHTML = username;
+
+          const userNameTag = document.getElementById("userNameTag");
+          userNameTag.innerText = username;
+
+          console.log(username);
+        } else {
+          // const userNameSpan = document.getElementById('userNameText');
+          // userNameSpan.innerHTML = "Welcome,";
+          // userNameTag.innerText = "Account";
+
+          const userNameActualName =
+            document.getElementById("userNameActualName");
+          userNameActualName.innerHTML = "";
+
+          const userNameTag = document.getElementById("userNameTag");
+          userNameTag.innerHTML = "Log In";
+        }
+      });
+    </script>
+
+    <!-- FIREBASE JS-->
+    <script src="assets/script/firebase.js"></script>
+    <!-- FIREBASE JS-->
+
+    <!--BOOTSTRAP JS-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <!--BOOTSTRAP JS-->
+
+    <!-- //GENERATING PDF -->
+
+    <!-- //GENERATING PDF -->
+
+    <!--CUSTOM SCRIPT-->
+    <!--CUSTOM SCRIPT-->
+    <script src="assets/script/app.js"></script>
+    <script src="assets/script/ui.js"></script>
+    <script src="assets/script/calendar.js"></script>
+    <script src="assets/script/script.js"></script>
+    <script src="assets/script/budget.js"></script>
+    <!--CUSTOM SCRIPT-->
+    <!--CUSTOM SCRIPT-->
+  </body>
+</html>
